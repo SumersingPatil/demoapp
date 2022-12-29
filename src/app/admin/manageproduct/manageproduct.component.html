@@ -1,0 +1,102 @@
+<app-header></app-header>
+<br>
+<br>
+<section class="mb-5">
+    <div class="container mt-7">
+        <div class="row">
+            <div class="col-12 col-md-12 col-sm-12">
+                <div class="card shadow border-primary">
+                   <div class="card-header border-0 bg-primary">
+               <h5 class="mb-0 text-white">Manage Products</h5>
+                   </div>
+                   <form style="padding:20px">
+               
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Product Name</label>
+                        <div class="col-sm-4">
+                            <input [(ngModel)]="productstbls.productname" type="text" class="form-control" name="productname"  />
+                        </div>
+                        <label class="col-sm-2 col-form-label">Product Desc</label>
+                        <div class="col-sm-4">
+                            <input [(ngModel)]="productstbls.productdesc" type="text" class="form-control" name="productdesc"  />
+                        </div>
+                            
+                    </div>
+
+                    
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Price</label>
+                        <div class="col-sm-4">
+                            <input [(ngModel)]="productstbls.price" type="text" class="form-control" name="price"  /></div>
+                        
+                            <label class="col-sm-2 col-form-label">Features</label>
+                            <div class="col-sm-4">
+                                <input [(ngModel)]="productstbls.features" type="text" class="form-control" name="features"  /></div>
+                         
+                    </div>
+                    
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Status</label>
+                        <div class="col-sm-4">
+                            <select class="form-control" name="isActive" >
+                                <option value="active">Active</option>
+                                <option value="deactive">Deactive</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center" >
+                        <button type="submit"  class="btn btn-primary" (click)="AddProduct()" >Submit</button>
+                    </div>
+            </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="mb-5">
+   <div class="container">
+    <div class="row">
+    <div class="col-12">
+        <div class="card shadow border-primary">
+            <div class="card-header border-0 bg-primary">
+                <h5 class="mb-0 text-white">Manage Product</h5>
+                    </div>
+          <div class="table-responsive">
+            <table class="table align-items-center table-flush">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Product Name</th>
+                        <th scope="col">Product Desc</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Features</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                   <tr *ngFor="let prod of getData">
+                        <td>{{prod.id}}</td>
+                        <td>{{prod.productname}}</td>
+                        <td>{{prod.productdesc}}</td>
+                        <td>{{prod.price}}</td>
+                        <td>{{prod.features}}</td>
+                        <td>Active</td>
+                   
+                        <td>
+                            
+                            &nbsp;&nbsp;
+                            <button type="submit"  class="btn btn-outline-warning rounded-btn"  (click)="DeleteAirline(prod)">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                
+                </thead>
+            </table>
+           </div>          
+        </div>
+    </div>
+    </div>
+   </div>
+</section>
